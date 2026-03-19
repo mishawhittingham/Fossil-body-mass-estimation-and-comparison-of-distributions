@@ -2,17 +2,17 @@ library(moments)
 library(multimode)
 library(Matching)
 
-BM_mamms = read.csv("C:\\Wirc\\Projekt3\\Bigness\\subsets\\TetBMs_herpsTaphready.csv", header = TRUE)
-BM_mamms20 = read.csv("C:\\Wirc\\Projekt3\\Bigness\\subsets\\TetBMs_herpsTaphready_size20.csv", header = TRUE)
-BM_mamms40 = read.csv("C:\\Wirc\\Projekt3\\Bigness\\subsets\\TetBMs_herpsTaphready_size40.csv", header = TRUE)
-BM_mamms60 = read.csv("C:\\Wirc\\Projekt3\\Bigness\\subsets\\TetBMs_herpsTaphready_size60.csv", header = TRUE)
+BM_mamms = read.csv("C:\\...\\TetBMs_herpsTaphready.csv", header = TRUE)
+BM_mamms20 = read.csv("C:\\...\\TetBMs_herpsTaphready_size20.csv", header = TRUE)
+BM_mamms40 = read.csv("C:\\...\\TetBMs_herpsTaphready_size40.csv", header = TRUE)
+BM_mamms60 = read.csv("C:\\...\\TetBMs_herpsTaphready_size60.csv", header = TRUE)
 
 sites = 29
 sites20 = 22
 sites40 = 11
 sites60 = 4
 
-Foss = read.csv("C:\\Wirc\\Projekt3\\Bigness\\FossilBMs.csv", header = TRUE)
+Foss = read.csv("C:\\...\\FossilBMs.csv", header = TRUE)
 
 allsmallmodes = c()
 allsmallkurts = c()
@@ -588,9 +588,9 @@ aoutput[1:(sites60*100),12] = allbasemeds60
 
 colnames(aoutput) = toprow2
 
-write.csv(poutput, "C:\\Wirc\\Projekt3\\Bigness\\subsets\\pvals_herpsTaph_pgls.csv")
-write.csv(doutput, "C:\\Wirc\\Projekt3\\Bigness\\subsets\\dvals_herpsTaph_pgls.csv")
-write.csv(moutput, "C:\\Wirc\\Projekt3\\Bigness\\subsets\\modes_herpsTaph_pgls.csv")
-write.csv(koutput, "C:\\Wirc\\Projekt3\\Bigness\\subsets\\kurts_herpsTaph_pgls.csv")
-write.csv(soutput, "C:\\Wirc\\Projekt3\\Bigness\\subsets\\skews_herpsTaph_pgls.csv")
-write.csv(aoutput, "C:\\Wirc\\Projekt3\\Bigness\\subsets\\medians_herpsTaph_pgls.csv")
+write.csv(poutput, "C:\\...\\pvals_herpsTaph_pgls.csv")
+write.csv(doutput, "C:\\...\\dvals_herpsTaph_pgls.csv")
+write.csv(moutput, "C:\\...\\modes_herpsTaph_pgls.csv")
+write.csv(koutput, "C:\\...\\kurts_herpsTaph_pgls.csv")
+write.csv(soutput, "C:\\...\\skews_herpsTaph_pgls.csv")
+write.csv(aoutput, "C:\\...\\medians_herpsTaph_pgls.csv")
