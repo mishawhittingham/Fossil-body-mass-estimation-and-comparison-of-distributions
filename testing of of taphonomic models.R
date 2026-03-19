@@ -2,11 +2,11 @@ library(moments)
 library(multimode)
 library(Matching)
 
-BM_mamms = read.csv("C:\\Wirc\\Projekt3\\Bigness\\subsets\\TetBMs_withmamms.csv", header = TRUE)
-BM_mamms20 = read.csv("C:\\Wirc\\Projekt3\\Bigness\\subsets\\TetBMs_withmamms_size20.csv", header = TRUE)
-BM_mamms40 = read.csv("C:\\Wirc\\Projekt3\\Bigness\\subsets\\TetBMs_withmamms_size40.csv", header = TRUE)
-BM_mamms60 = read.csv("C:\\Wirc\\Projekt3\\Bigness\\subsets\\TetBMs_withmamms_size60.csv", header = TRUE)
-Foss = read.csv("C:\\Wirc\\Projekt3\\Bigness\\FossilBMs.csv", header = TRUE)
+BM_mamms = read.csv("C:\\...\\TetBMs_withmamms.csv", header = TRUE)
+BM_mamms20 = read.csv("C:\\...\\TetBMs_withmamms_size20.csv", header = TRUE)
+BM_mamms40 = read.csv("C:\\...\\TetBMs_withmamms_size40.csv", header = TRUE)
+BM_mamms60 = read.csv("C:\\...\\TetBMs_withmamms_size60.csv", header = TRUE)
+Foss = read.csv("C:\\...\\FossilBMs.csv", header = TRUE)
 
 allsmallmodes = c()
 allsmallkurts = c()
@@ -956,9 +956,9 @@ aoutput[1:1000,16] = allbasemeds60[1:1000]
 
 colnames(aoutput) = toprow2
 
-write.csv(poutput, "C:\\Wirc\\Projekt3\\Bigness\\subsets\\pvals_fullTaph_pgls.csv")
-write.csv(doutput, "C:\\Wirc\\Projekt3\\Bigness\\subsets\\dvals_fullTaph_pgls.csv")
-write.csv(moutput, "C:\\Wirc\\Projekt3\\Bigness\\subsets\\modes_fullTaph_pgls.csv")
-write.csv(koutput, "C:\\Wirc\\Projekt3\\Bigness\\subsets\\kurts_fullTaph_pgls.csv")
-write.csv(soutput, "C:\\Wirc\\Projekt3\\Bigness\\subsets\\skews_fullTaph_pgls.csv")
-write.csv(aoutput, "C:\\Wirc\\Projekt3\\Bigness\\subsets\\medians_fullTaph_pgls.csv")
+write.csv(poutput, "C:\\...\\pvals_fullTaph_pgls.csv")
+write.csv(doutput, "C:\\...\\dvals_fullTaph_pgls.csv")
+write.csv(moutput, "C:\\...\\modes_fullTaph_pgls.csv")
+write.csv(koutput, "C:\\...\\kurts_fullTaph_pgls.csv")
+write.csv(soutput, "C:\\...\\skews_fullTaph_pgls.csv")
+write.csv(aoutput, "C:\\...\\medians_fullTaph_pgls.csv")
