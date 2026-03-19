@@ -2,16 +2,16 @@ library(moments)
 library(multimode)
 library(Matching)
 
-BM_mamms = read.csv("C:\\Wirc\\Projekt3\\Bigness\\subsets\\TetBMs_CarnsOnlyTaphready.csv", header = TRUE)
-BM_mamms20 = read.csv("C:\\Wirc\\Projekt3\\Bigness\\subsets\\TetBMs_CarnsOnlyTaphready_size20.csv", header = TRUE)
-BM_mamms40 = read.csv("C:\\Wirc\\Projekt3\\Bigness\\subsets\\TetBMs_CarnsOnlyTaphready_size40.csv", header = TRUE)
+BM_mamms = read.csv("C:\\...\\TetBMs_CarnsOnlyTaphready.csv", header = TRUE)
+BM_mamms20 = read.csv("C:\\...\\TetBMs_CarnsOnlyTaphready_size20.csv", header = TRUE)
+BM_mamms40 = read.csv("C:\\...\\TetBMs_CarnsOnlyTaphready_size40.csv", header = TRUE)
 
 sites = 21
 sites20 = 15
 sites40 = 4
 
 
-Foss = read.csv("C:\\Wirc\\Projekt3\\Bigness\\FossilBMs.csv", header = TRUE)
+Foss = read.csv("C:\\...\\FossilBMs.csv", header = TRUE)
 
 allsmallmodes = c()
 allsmallkurts = c()
@@ -452,9 +452,9 @@ aoutput[1:(sites40*100),9] = allbasemeds40
 
 colnames(aoutput) = toprow2
 
-write.csv(poutput, "C:\\Wirc\\Projekt3\\Bigness\\subsets\\pvals_CarnsOnlyTaph_pgls.csv")
-write.csv(doutput, "C:\\Wirc\\Projekt3\\Bigness\\subsets\\dvals_CarnsOnlyTaph_pgls.csv")
-write.csv(moutput, "C:\\Wirc\\Projekt3\\Bigness\\subsets\\modes_CarnsOnlyTaph_pgls.csv")
-write.csv(koutput, "C:\\Wirc\\Projekt3\\Bigness\\subsets\\kurts_CarnsOnlyTaph_pgls.csv")
-write.csv(soutput, "C:\\Wirc\\Projekt3\\Bigness\\subsets\\skews_CarnsOnlyTaph_pgls.csv")
-write.csv(aoutput, "C:\\Wirc\\Projekt3\\Bigness\\subsets\\medians_CarnsOnlyTaph_pgls.csv")
+write.csv(poutput, "C:\\...\\pvals_CarnsOnlyTaph_pgls.csv")
+write.csv(doutput, "C:\\...\\dvals_CarnsOnlyTaph_pgls.csv")
+write.csv(moutput, "C:\\...\\modes_CarnsOnlyTaph_pgls.csv")
+write.csv(koutput, "C:\\...\\kurts_CarnsOnlyTaph_pgls.csv")
+write.csv(soutput, "C:\\...\\skews_CarnsOnlyTaph_pgls.csv")
+write.csv(aoutput, "C:\\...\\medians_CarnsOnlyTaph_pgls.csv")
