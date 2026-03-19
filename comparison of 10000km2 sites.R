@@ -2,17 +2,17 @@ library(moments)
 library(multimode)
 library(Matching)
 
-BM_mamms = read.csv("C:\\Wirc\\Projekt3\\Bigness\\subsets\\Broadtest100.csv", header = TRUE)
-BM_mamms20 = read.csv("C:\\Wirc\\Projekt3\\Bigness\\subsets\\Broadtest100_size20.csv", header = TRUE)
-BM_mamms40 = read.csv("C:\\Wirc\\Projekt3\\Bigness\\subsets\\Broadtest100_size40.csv", header = TRUE)
-BM_mamms60 = read.csv("C:\\Wirc\\Projekt3\\Bigness\\subsets\\Broadtest100_size60.csv", header = TRUE)
+BM_mamms = read.csv("C:\\...\\Broadtest100.csv", header = TRUE)
+BM_mamms20 = read.csv("C:\\...\\Broadtest100_size20.csv", header = TRUE)
+BM_mamms40 = read.csv("C:\\...\\Broadtest100_size40.csv", header = TRUE)
+BM_mamms60 = read.csv("C:\\...\\Broadtest100_size60.csv", header = TRUE)
 
 sites = 12
 sites20 = 12
 sites40 = 10
 sites60 = 6
 
-Foss = read.csv("C:\\Wirc\\Projekt3\\Bigness\\FossilBMs.csv", header = TRUE)
+Foss = read.csv("C:\\...\\FossilBMs.csv", header = TRUE)
 
 allsmallmodes = c()
 allsmallkurts = c()
@@ -590,9 +590,9 @@ aoutput[1:(sites60*100),12] = allbasemeds60[1:600]
 
 colnames(aoutput) = toprow2
 
-write.csv(poutput, "C:\\Wirc\\Projekt3\\Bigness\\subsets\\pvals_broad100Taph_pgls.csv")
-write.csv(doutput, "C:\\Wirc\\Projekt3\\Bigness\\subsets\\dvals_broad100Taph_pgls.csv")
-write.csv(moutput, "C:\\Wirc\\Projekt3\\Bigness\\subsets\\modes_broad100Taph_pgls.csv")
-write.csv(koutput, "C:\\Wirc\\Projekt3\\Bigness\\subsets\\kurts_broad100Taph_pgls.csv")
-write.csv(soutput, "C:\\Wirc\\Projekt3\\Bigness\\subsets\\skews_broad100Taph_pgls.csv")
-write.csv(aoutput, "C:\\Wirc\\Projekt3\\Bigness\\subsets\\medians_broad100Taph_pgls.csv")
+write.csv(poutput, "C:\\...\\pvals_broad100Taph_pgls.csv")
+write.csv(doutput, "C:\\...\\dvals_broad100Taph_pgls.csv")
+write.csv(moutput, "C:\\...\\modes_broad100Taph_pgls.csv")
+write.csv(koutput, "C:\\...\\kurts_broad100Taph_pgls.csv")
+write.csv(soutput, "C:\\...\\skews_broad100Taph_pgls.csv")
+write.csv(aoutput, "C:\\...\\medians_broad100Taph_pgls.csv")
