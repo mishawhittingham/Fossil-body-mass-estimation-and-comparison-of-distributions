@@ -1,0 +1,24 @@
+Spec. No.,Locality,Clade,Name,MeanCSA,MinCSA,MaxCSA
+ROM 55402,Cape Egmont,Parareptilia,Erpetonyx arsenaultorum,-0.053744293,-0.401318901,0.193820026
+MCZ 4082,Point Aconi,Pelycosauria,Archaeothyris florensis,0.838258615,0.704365036,0.954242509
+MCZ 4090,Point Aconi,Pelycosauria,Echinerpeton intermedium,0.546002544,0.352182518,0.704365036
+MCZ 4088,Point Aconi,Pelycosauria,indet. ,0.654717869,0.486076097,0.795880017
+"MCZ 3481, 3482",Point Aconi,Eureptilia,Paleothyris acadiana,0.172719661,-0.602059991,0.57560346
+MCZ 3034,Point Aconi,Amniota?,Limnostygis relictus,1.204119983,1.204119983,1.204119983
+MCZ 2773,Point Aconi,Embolomerii,Carbonoherpeton carrolli,1.519335689,1.306425028,1.69019608
+CMN 10041,Joggins,Recumbirostra,Steenerpeton silvae,0.505706062,0.352182518,0.63612667
+CMN 10048,Joggins,Eureptilia,Hylonomus lyelli,-0.519274621,-0.602059991,-0.443697499
+NSM 987GF99.1,Joggins,Temnospondyli,Dendrerpeton acadianum,1.076896103,0.974276751,1.168662449
+BM R.5775,Joggins,Pantylidae?,Trachystegos megalodon,0.753153914,0.548315699,0.918784976
+NSM 994GF1.1,Joggins,Embolomerii,Calligenethlon watsoni,1.397940009,1.204119983,1.556302501
+RM 12056,Joggins,Microsauria?,Archerpeton anthracos,-0.387640052,-0.713094647,-0.151441428
+RM 12202,Joggins,Pelycosauria?,Protoclepsydrops haplous,0.654717869,0.486076097,0.795880017
+NSM 017GF020.001,Point Aconi,Varanopidae,Dendromaia unimakiensis,1.204119983,0.954242509,1.397940009
+NSM 017GF020.022,Point Aconi,Pelycosauria?,indet. ,-0.221396595,-0.30980392,-0.141162149
+NSM 017GF0???,Point Aconi,Varanopidae?,indet. ,1.023766722,0.954242509,1.088136089
+PU 16982,Port Hood,Limnoscelidae,Romeriscus periallus,0.795880017,0.602059991,0.954242509
+RM 12091,Joggins,Pelycosauria?,Asaphestera intermedia,0.434967888,0.292256071,0.557507202
+BM R.477,Joggins,Microsauria?,Ricnodon sp.,-0.817870786,-1.315154638,-0.503623946
+RM 21128,Joggins,Microsauria?,Novascoticus multidens,-0.465688268,-0.602059991,-0.347850395
+RM 21129,Joggins,indet.,indet. ,0.66487692,0.602059991,0.723455672
+RM 21191,Joggins,Gymnarthra,Leiocephalikon problematicum,-0.30980392,-0.443697499,-0.193820026
