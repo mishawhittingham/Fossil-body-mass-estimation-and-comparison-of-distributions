@@ -1,14 +1,15 @@
 library(smatr)
-fullset = read.csv("C:\\...\\Full set.csv")
+fullset = read.csv("C:\\...\\Full set.csv") #read csv of body mass and centrum measurements
 fullset$Clade = as.factor(fullset$Clade)
 fullset$Terrestriality= as.factor(fullset$Terrestriality)
 fullset$BM.Category = as.factor(fullset$BM.Category)
 
+#run basic semi-major axis analyses of each centrum measurement category
 meanOSA_sma = sma(fullset$BM.g~fullset$Mean.OSA, data = fullset, method = "SMA", alpha = 0.05)
 minOSA_sma = sma(fullset$BM.g~fullset$Min.OSA, data = fullset, method = "SMA", alpha = 0.05)
 maxOSA_sma = sma(fullset$BM.g~fullset$Max.OSA, data = fullset, method = "SMA", alpha = 0.05)
 
-
+#build a table for comparison of SMA results
 SMAcomparison = data.frame(matrix(nrow = 33, ncol = 17))
 SMAcomparison[,1] = rep(c("meanOSA", "minOSA", "maxOSA"), each = 11)
 colnames(SMAcomparison) = c("test variable","subset","n","r-squared", "p-value", "slope","slope CI lower", "slope CI upper", "intercept", "intercept CI lower", "intercept CI upper", "clade slopes p", "terrestriality slopes p", "BM category slopes p", "clade intercepts p", "terrestriality intercepts p", "BM category intercepts p")
@@ -42,15 +43,17 @@ for(i in 1:3){
  
 }
 
-
+#run SMAs to compare amongst clades
 meanOSA_sma_clades = sma(fullset$BM.g~fullset$Mean.OSA*fullset$Clade, data = fullset, method = "SMA", alpha = 0.05)
 minOSA_sma_clades = sma(fullset$BM.g~fullset$Min.OSA*fullset$Clade, data = fullset, method = "SMA", alpha = 0.05)
 maxOSA_sma_clades = sma(fullset$BM.g~fullset$Max.OSA*fullset$Clade, data = fullset, method = "SMA", alpha = 0.05)
 
+#run SMAs to compare amongst body mass categories
 meanOSA_sma_BMcats = sma(fullset$BM.g~fullset$Mean.OSA*fullset$BM.Category, data = fullset, method = "SMA", alpha = 0.05)
 minOSA_sma_BMcats = sma(fullset$BM.g~fullset$Min.OSA*fullset$BM.Category, data = fullset, method = "SMA", alpha = 0.05)
 maxOSA_sma_BMcats = sma(fullset$BM.g~fullset$Max.OSA*fullset$BM.Category, data = fullset, method = "SMA", alpha = 0.05)
 
+#run SMAs to compare between fully terrestrial and semiaquatic quadrupeds
 meanOSA_sma_terr = sma(fullset$BM.g~fullset$Mean.OSA*fullset$Terrestriality, data = fullset, method = "SMA", alpha = 0.05)
 minOSA_sma_terr = sma(fullset$BM.g~fullset$Min.OSA*fullset$Terrestriality, data = fullset, method = "SMA", alpha = 0.05)
 maxOSA_sma_terr = sma(fullset$BM.g~fullset$Max.OSA*fullset$Terrestriality, data = fullset, method = "SMA", alpha = 0.05)
