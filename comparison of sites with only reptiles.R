@@ -2,6 +2,8 @@ library(moments)
 library(multimode)
 library(Matching)
 
+#read csv files of reptile body masses from modern sites at various sample sizes, as well as the fossil body mass distibutions
+
 BM_mamms = read.csv("C:\\...\\TetBMs_herpsTaphready.csv", header = TRUE)
 BM_mamms20 = read.csv("C:\\...\\TetBMs_herpsTaphready_size20.csv", header = TRUE)
 BM_mamms40 = read.csv("C:\\...\\TetBMs_herpsTaphready_size40.csv", header = TRUE)
@@ -14,6 +16,7 @@ sites60 = 4
 
 Foss = read.csv("C:\\...\\FossilBMs.csv", header = TRUE)
 
+#prepare vectors to read comparative results
 allsmallmodes = c()
 allsmallkurts = c()
 allsmallskews = c()
@@ -100,7 +103,7 @@ allbasePAmaxps60 = c()
 allbasePAmaxds60 = c()
 
 
-#now for CSAmax estimates
+#compare modern and Joggins body mass distributions, using predicted taphonomic biases
 
 for(i in 1:sites){
   baseset = na.omit(BM_mamms[,i])
@@ -482,6 +485,8 @@ for(i in 1:sites60){
   allbasePAmaxps60 = c(allbasePAmaxps60, baseps)
   allbasePAmaxds60 = c(allbasePAmaxds60, baseds)
 }
+
+#collate all results into csv files of ks-test p-values, ks-test d-values, modality test results, kurtoses, skewnesses, and medians
 
 toprow = c("small-bias JOGmax", "small-bias JOGmax size20", "small-bias JOGmax size40", "small-bias JOGmax size60", 
              "edge-bias PAmax", "edge-bias PAmax size 20", "edge-bias PAmax size 40", "edge-bias PAmax size 60", 
