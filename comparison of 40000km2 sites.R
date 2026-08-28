@@ -2,7 +2,7 @@ library(moments)
 library(multimode)
 library(Matching)
 
-
+#see "testing of taphonomic models.R" for fully annotated template used as the basis for all code for comparing modern and fossil sites
 #read csv files of body masses from 40000km2 modern sites at various sample sizes, as well as the fossil body mass distibutions
 
 BM_mamms = read.csv("C:\\...\\Broadtest200.csv", header = TRUE)
