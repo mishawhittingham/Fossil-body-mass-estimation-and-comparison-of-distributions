@@ -2,6 +2,9 @@ library(moments)
 library(multimode)
 library(Matching)
 
+
+#read csv files of mammal body masses from modern sites at various sample sizes, as well as the fossil body mass distibutions
+
 BM_mamms = read.csv("C:\\...\\TetBMs_justmammsTaphready.csv", header = TRUE)
 BM_mamms20 = read.csv("C:\\...\\TetBMs_justmammsTaphready_size20.csv", header = TRUE)
 BM_mamms40 = read.csv("C:\\...\\TetBMs_justmammsTaphready_size40.csv", header = TRUE)
@@ -12,6 +15,8 @@ sites40 = 4
 
 
 Foss = read.csv("C:\\...\\FossilBMs.csv", header = TRUE)
+
+#prepare vectors to read comparative results
 
 allsmallmodes = c()
 allsmallkurts = c()
@@ -76,8 +81,7 @@ allbothPAmaxds40 = c()
 allbasePAmaxps40 = c()
 allbasePAmaxds40 = c()
 
-
-#now for CSAmax estimates
+#compare modern and Joggins body mass distributions, using predicted taphonomic biases
 
 for(i in 1:sites){
   baseset = na.omit(BM_mamms[,i])
@@ -144,7 +148,7 @@ for(i in 1:sites){
   allbasemeds = c(allbasemeds, basemeds)
 }
 
-#now do PA
+#now do the same for Point Aconi
 for(i in 1:sites){
   baseset = na.omit(BM_mamms[,i])
   bothmaxfit5 = ifelse(BM_mamms[,i] <  max(na.omit(Foss[,6])) & BM_mamms[,i] > min(Foss[,11]),0.95, 0.05)
@@ -363,6 +367,7 @@ for(i in 1:sites40){
   allbasePAmaxds40 = c(allbasePAmaxds40, baseds)
 }
 
+#collate all results into csv files of ks-test p-values, ks-test d-values, modality test results, kurtoses, skewnesses, and medians
 
 toprow = c("small-bias JOGmax", "small-bias JOGmax size20", "small-bias JOGmax size40", 
              "edge-bias PAmax", "edge-bias PAmax size 20", "edge-bias PAmax size 40",  
