@@ -2,12 +2,14 @@ library(moments)
 library(multimode)
 library(Matching)
 
+#read csv files of body masses from modern sites at various sample sizes, as well as the fossil body mass distibutions
 BM_mamms = read.csv("C:\\...\\TetBMs_withmamms.csv", header = TRUE)
 BM_mamms20 = read.csv("C:\\...\\TetBMs_withmamms_size20.csv", header = TRUE)
 BM_mamms40 = read.csv("C:\\...\\TetBMs_withmamms_size40.csv", header = TRUE)
 BM_mamms60 = read.csv("C:\\...\\TetBMs_withmamms_size60.csv", header = TRUE)
 Foss = read.csv("C:\\...\\FossilBMs.csv", header = TRUE)
 
+#prepare vectors to read comparative results
 allsmallmodes = c()
 allsmallkurts = c()
 allsmallskews = c()
@@ -149,13 +151,13 @@ allbasePAmaxps60 = c()
 allbasePAmaxds60 = c()
 
 
-#now for CSAmax estimates
+#compare modern and Joggins body mass distributions with different taphonomic biases
 
 for(i in 1:29){
   baseset = na.omit(BM_mamms[,i])
-  smallmaxfit5 = ifelse(BM_mamms[,i] < min(Foss[,11]), 0.05, 0.95)
-  bigmaxfit5 = ifelse(BM_mamms[,i] > max(na.omit(Foss[,6])), 0.05, 0.95)
-  bothmaxfit5 = ifelse(BM_mamms[,i] <  max(na.omit(Foss[,6])) & BM_mamms[,i] > min(Foss[,11]),0.95, 0.05)
+  smallmaxfit5 = ifelse(BM_mamms[,i] < min(Foss[,11]), 0.05, 0.95) #simulate bias against small species
+  bigmaxfit5 = ifelse(BM_mamms[,i] > max(na.omit(Foss[,6])), 0.05, 0.95) #simulate bias against large species
+  bothmaxfit5 = ifelse(BM_mamms[,i] <  max(na.omit(Foss[,6])) & BM_mamms[,i] > min(Foss[,11]),0.95, 0.05) #simulate bias against small and large species
   smallps = c()
   smallds = c()
   smallmodes = c()
@@ -260,7 +262,7 @@ for(i in 1:29){
   allbasemeds = c(allbasemeds, basemeds)
 }
 
-#now do PA
+#now do the same for Point Aconi
 for(i in 1:29){
   baseset = na.omit(BM_mamms[,i])
   smallmaxfit5 = ifelse(BM_mamms[,i] < min(Foss[,11]), 0.05, 0.95)
@@ -310,7 +312,7 @@ for(i in 1:29){
   allbasePAmaxds = c(allbasePAmaxds, baseds)
 }
 
-#now at sample size 20
+#now do everything again at sample size 20
 
 for(i in 1:26){
   baseset = na.omit(BM_mamms20[,i])
@@ -421,7 +423,7 @@ for(i in 1:26){
   allbasemeds20 = c(allbasemeds20, basemeds)
 }
 
-#now do PA
+#point aconi
 for(i in 1:26){
   baseset = na.omit(BM_mamms20[,i])
   smallmaxfit5 = ifelse(BM_mamms20[,i] < min(Foss[,11]), 0.05, 0.95)
@@ -792,6 +794,8 @@ for(i in 1:10){
   allbasePAmaxps60 = c(allbasePAmaxps60, baseps)
   allbasePAmaxds60 = c(allbasePAmaxds60, baseds)
 }
+
+#collate all results into csv files of ks-test p-values, ks-test d-values, modality test results, kurtoses, skewnesses, and medians
 
 toprow = c("small-bias JOGmax", "small-bias JOGmax size20", "small-bias JOGmax size40", "small-bias JOGmax size60", "small-bias PAmax", "small-bias PAmax size 20", "small-bias PAmax size 40", "small-bias PAmax size 60",
              "large-bias JOGmax", "large-bias JOGmax size 20", "large-bias JOGmax size 40", "large-bias JOGmax size 60", "large-bias PAmax", "large-bias PAmax size 20", "large-bias PAmax size 40", "large-bias PAmax size 60",
