@@ -2,6 +2,8 @@ library(moments)
 library(multimode)
 library(Matching)
 
+#read csv files of body masses of abducted-limb tetrapods from modern sites at various sample sizes, as well as the fossil body mass distibutions
+
 BM_mamms = read.csv("C:\\...\\TetBMs_tubesTaphready.csv", header = TRUE)
 BM_mamms20 = read.csv("C:\\...\\TetBMs_tubesTaphready_size20.csv", header = TRUE)
 
@@ -11,6 +13,8 @@ sites20 = 10
 
 Foss = read.csv("C:\\...\\FossilBMs.csv", header = TRUE)
 
+
+#prepare vectors to read comparative results
 allsmallmodes = c()
 allsmallkurts = c()
 allsmallskews = c()
@@ -54,7 +58,7 @@ allbasePAmaxps20 = c()
 allbasePAmaxds20 = c()
 
 
-#now for CSAmax estimates
+#compare modern and Joggins body mass distributions, including taphonomic simulations
 
 for(i in 1:sites){
   baseset = na.omit(BM_mamms[,i])
@@ -244,6 +248,8 @@ for(i in 1:sites20){
   allbasePAmaxps20 = c(allbasePAmaxps20, baseps)
   allbasePAmaxds20 = c(allbasePAmaxds20, baseds)
 }
+
+#collate all results into csv files of ks-test p-values, ks-test d-values, modality test results, kurtoses, skewnesses, and medians
 
 toprow = c("small-bias JOGmax", "small-bias JOGmax size20", "edge-bias PAmax", "edge-bias PAmax size 20", 
              "unbiased PAmax", "unbiased PAmax size 20")
