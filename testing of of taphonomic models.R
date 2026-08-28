@@ -1,6 +1,8 @@
 library(moments)
 library(multimode)
 library(Matching)
+#this is the base template for all comparison of modern and fossil body mass distributions, 
+#all other R scripts for comparsion of sites use the same analyses but with different base datasets, and with taphonomic size-bias simulations limited to those with shown to have the best fit
 
 #read csv files of body masses from modern sites at various sample sizes, as well as the fossil body mass distibutions
 BM_mamms = read.csv("C:\\...\\TetBMs_withmamms.csv", header = TRUE)
@@ -151,7 +153,7 @@ allbasePAmaxps60 = c()
 allbasePAmaxds60 = c()
 
 
-#compare modern and Joggins body mass distributions with different taphonomic biases
+#compare modern and Joggins body mass distributions with different taphonomic biases, this process is the same for the Point Aconi distribution, and for distributions of larger sample size
 
 for(i in 1:29){
   baseset = na.omit(BM_mamms[,i])
@@ -184,18 +186,19 @@ for(i in 1:29){
   basemeds = c()
   for(j in 1:100){
     smallsampleset = sample(baseset, 12, replace = FALSE, prob = na.omit(smallmaxfit5))
-    smallresult = ks.boot(log10(na.omit(Foss[,4])), log10(smallsampleset), nboots = 1000)
-    smallmode = as.numeric(modetest(log10(smallsampleset), mod0 = 1)$statistic)
-    smallkurt = as.numeric(anscombe.test(log10(smallsampleset))$statistic[1])
-    smallskew = as.numeric(agostino.test(log10(smallsampleset), alternative = "two.sided")$statistic[1])
-    smallmodes = c(smallmodes, smallmode)
+    smallresult = ks.boot(log10(na.omit(Foss[,4])), log10(smallsampleset), nboots = 1000) #ks-test results for samples biased against small species
+    smallmode = as.numeric(modetest(log10(smallsampleset), mod0 = 1)$statistic) #test modality
+    smallkurt = as.numeric(anscombe.test(log10(smallsampleset))$statistic[1]) #test kurtoses
+    smallskew = as.numeric(agostino.test(log10(smallsampleset), alternative = "two.sided")$statistic[1]) #test skewnesses
+    smallmodes = c(smallmodes, smallmode) 
     smallkurts = c(smallkurts, smallkurt)
     smallskews = c(smallskews, smallskew)
-    smallmeds = c(smallmeds, median(smallsampleset))
-    smallpval = smallresult$ks$p.value
-    smalldval = smallresult$ks$statistic
+    smallmeds = c(smallmeds, median(smallsampleset)) #get medians of distributions
+    smallpval = smallresult$ks$p.value #get p-values of ks-tests
+    smalldval = smallresult$ks$statistic #get d-values of ks-tests
     smallps = c(smallps, smallpval)
     smallds = c(smallds, smalldval)
+    #repeat testing for samples biased against large species
     bigsampleset = sample(baseset, 12, replace = FALSE, prob = na.omit(bigmaxfit5))
     bigresult = ks.boot(log10(na.omit(Foss[,4])), log10(bigsampleset), nboots = 1000)
     bigmode = as.numeric(modetest(log10(bigsampleset), mod0 = 1)$statistic)
@@ -209,6 +212,7 @@ for(i in 1:29){
     bigdval = bigresult$ks$statistic
     bigps = c(bigps, bigpval)
     bigds = c(bigds, bigdval)
+    #repeat testing for samples biased against both large and small species
     bothsampleset = sample(baseset, 12, replace = FALSE, prob = na.omit(bothmaxfit5))
     bothresult = ks.boot(log10(na.omit(Foss[,4])), log10(bothsampleset), nboots = 1000)
     bothmode = as.numeric(modetest(log10(bothsampleset), mod0 = 1)$statistic)
@@ -222,6 +226,7 @@ for(i in 1:29){
     bothdval = bothresult$ks$statistic
     bothps = c(bothps, bothpval)
     bothds = c(bothds, bothdval)
+    #repeat testing for samples with no taphonomic bias simulated
     basesampleset = sample(baseset, 12, replace = FALSE)
     baseresult = ks.boot(log10(na.omit(Foss[,4])), log10(basesampleset), nboots = 1000)
     basemode = as.numeric(modetest(log10(basesampleset), mod0 = 1)$statistic)
@@ -236,6 +241,7 @@ for(i in 1:29){
     baseps = c(baseps, basepval)
     baseds = c(baseds, basedval)
   }
+  #collate results
   allsmallJOGmaxps = c(allsmallJOGmaxps, smallps)
   allsmallJOGmaxds = c(allsmallJOGmaxds, smallds)
   allsmallmodes = c(allsmallmodes, smallmodes)
